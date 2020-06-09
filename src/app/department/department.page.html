@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color = "secondary">
+    <ion-title>department</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <ion-list>
+    <ion-item *ngFor="let department of departlist" color = "secondary">
+    <ion-label>{{department.name}}- {{department.section}}</ion-label>
+  </ion-item>
+  </ion-list>
+</ion-content>
