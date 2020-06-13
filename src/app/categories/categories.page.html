@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title>
+    <ion-title><ion-icon name="cart-sharp"></ion-icon>
       Shopping Cart
     </ion-title>
   </ion-toolbar>
@@ -19,14 +19,15 @@
       <ion-icon name="cart-sharp"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+    
   <ion-col size=1>
     <ion-row>
-      <ion-button color="dark" (click) = 'navtowomenclothing()' ><ion-icon name="woman-sharp"></ion-icon>WOMEN CLOTHING</ion-button>
+     <ion-button color="dark" (click) = 'navtomenclothing()' ><ion-icon name="shirt-outline"></ion-icon>MEN WEAR</ion-button>
     </ion-row>
-  </ion-col>  
+  </ion-col>
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'navtomenclothing()' ><ion-icon name="shirt-outline"></ion-icon>MEN CLOTHING</ion-button>
+      <ion-button color="dark" (click) = 'navtowomenclothing()' ><ion-icon name="woman-sharp"></ion-icon>WOMEN WEAR</ion-button>
     </ion-row>
   </ion-col>
   <ion-col size=1>
@@ -41,7 +42,7 @@
   </ion-col>
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'navtocookware()' ><ion-icon name="cafe"></ion-icon>COOKWARE</ion-button>
+     <ion-button color="dark" (click) = 'navtocookware()' ><ion-icon name="restaurant-sharp"></ion-icon>COOKWARE</ion-button>
     </ion-row>
   </ion-col>
   <ion-col size=1>
