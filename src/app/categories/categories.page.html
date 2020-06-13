@@ -1,38 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Categories</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Shopping Cart
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Categories
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button color = "dark" (click) ='navtocart()'>
+      <ion-icon name="cart-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-col size=1>
     <ion-row>
-      <ion-button color="dark" (click) = 'womenclothing()' ><ion-icon name="woman-sharp"></ion-icon>WOMEN CLOTHING</ion-button>
+      <ion-button color="dark" (click) = 'navtowomenclothing()' ><ion-icon name="woman-sharp"></ion-icon>WOMEN CLOTHING</ion-button>
     </ion-row>
   </ion-col>  
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'menclothing()' ><ion-icon name="shirt-outline"></ion-icon>MEN CLOTHING</ion-button>
+     <ion-button color="dark" (click) = 'navtomenclothing()' ><ion-icon name="shirt-outline"></ion-icon>MEN CLOTHING</ion-button>
     </ion-row>
   </ion-col>
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'accessories()' ><ion-icon name="watch-outline"></ion-icon>ACCESSORIES</ion-button>
+     <ion-button color="dark" (click) = 'navtoaccessories()' ><ion-icon name="watch-outline"></ion-icon>ACCESSORIES</ion-button>
     </ion-row>
   </ion-col>
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'electronics()' ><ion-icon name="phone-portrait-sharp"></ion-icon>ELECTRONICS</ion-button>
+     <ion-button color="dark" (click) = 'navtoelectronics()' ><ion-icon name="phone-portrait-sharp"></ion-icon>ELECTRONICS</ion-button>
     </ion-row>
   </ion-col>
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'cookware()' ><ion-icon name="cafe"></ion-icon>COOKWARE</ion-button>
+     <ion-button color="dark" (click) = 'navtocookware()' ><ion-icon name="cafe"></ion-icon>COOKWARE</ion-button>
     </ion-row>
   </ion-col>
   <ion-col size=1>
     <ion-row>
-     <ion-button color="dark" (click) = 'booksandstationery()' ><ion-icon name="library-sharp"></ion-icon>BOOKS AND STATIONERY</ion-button>
+     <ion-button color="dark" (click) = 'navtobooksandstationery()' ><ion-icon name="library-sharp"></ion-icon>BOOKS AND STATIONERY</ion-button>
     </ion-row>
   </ion-col>
+
 </ion-content>

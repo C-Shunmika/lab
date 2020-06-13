@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from '../products.service';
+
 
 @Component({
   selector: 'app-categories',
@@ -7,30 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage implements OnInit {
+  private total;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public productsservice : ProductsService) { }
 
   ngOnInit() {
   }
-  womenclothing(){
+  navtowomenclothing(){
     this.router.navigate(['womenclothing']);
   }
-  menclothing(){
+  navtomenclothing(){
     this.router.navigate(['menclothing']);
   }
-  accessories(){
+  navtoaccessories(){
     this.router.navigate(['accessories']);
   }
-  electronics(){
+  navtoelectronics(){
     this.router.navigate(['electronics']);
   }
-  cookware(){
+  navtocookware(){
     this.router.navigate(['cookware']);
   }
-  booksandstationery(){
+  navtobooksandstationery(){
     this.router.navigate(['booksandstationery']);
   }
- 
-  
+  navtocart(){
+    this.router.navigate(['mycart']);
+    
+  }
 
 }

@@ -1,29 +1,26 @@
 import { Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../products.service';
+
 @Component({
-  selector: 'app-menclothing',
-  templateUrl: './menclothing.page.html',
-  styleUrls: ['./menclothing.page.scss'],
+  selector: 'app-mycart',
+  templateUrl: './mycart.page.html',
+  styleUrls: ['./mycart.page.scss'],
 })
-export class MenclothingPage{
-  private mencloths;
+export class MycartPage  {
+  private carts;
   private total;
 
   constructor(public router : Router, public productsservice : ProductsService) { 
-    this.mencloths=productsservice.getmencloths();
-    console.log('products', this.mencloths);
-
+    this.carts=productsservice.getcart();
+    console.log('products', this.carts);
   }
-  addtocart(product){
-    this.productsservice.addtocart(product);
-    this.productsservice.getcart();
+  removeProduct(product){
+    this.productsservice.removeProduct(product);
     this.total=this.productsservice.getcart().length;
   }
-  
   navtocategory(){
     this.router.navigate(['categories']);
   }
-
-
+  
 }

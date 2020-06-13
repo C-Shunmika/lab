@@ -1,24 +1,50 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>menclothing</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title><ion-icon name="cart-sharp"></ion-icon>
+      Shopping Cart
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Men Wear
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-text>
-    <h3>Shirts
-      <h6>The Linen World</h6>
-      <ion-button>Add to cart</ion-button>
-    </h3> 
-    <h3>Dhotis 
-      <h6>The Traditional Store</h6>
-      <ion-button>Add to cart</ion-button>
-    </h3>
-    <h3>Jeans 
-      <h6>WE Boutique</h6>
-      <ion-button >Add to cart</ion-button>
-    </h3>
-  </ion-text>
-
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button color = "dark" >
+      <ion-icon name="cart-sharp">{{total}}</ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab-button (click)='navtocategory()' color="dark"><ion-icon name="arrow-undo-outline"></ion-icon></ion-fab-button>
+  
+  <ion-list>
+    <ion-card *ngFor="let product of mencloths">
+      <ion-card-header>
+        <ion-card-title>{{ product.name }}</ion-card-title>
+        <ion-card-title>{{ product.id }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="8">
+            <ion-label color="secondary">
+              <b>{{ product.price | currency:'INR' }}</b>
+            </ion-label>
+          </ion-col>
+          <ion-col size="4" class="ion-text-right">
+            <ion-button (click) = 'addtocart(product)'>Add to cart</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  
 </ion-content>
+
+
+
+
+

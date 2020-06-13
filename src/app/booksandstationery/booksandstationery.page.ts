@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from '../products.service';
+
 
 @Component({
   selector: 'app-booksandstationery',
   templateUrl: './booksandstationery.page.html',
   styleUrls: ['./booksandstationery.page.scss'],
 })
-export class BooksandstationeryPage implements OnInit {
+export class BooksandstationeryPage {
+  private booksandstationeries;
+  private total;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public router : Router, public productsservice : ProductsService) {
+    this.booksandstationeries=productsservice.getbooksandstationeries();
+    console.log('products', this.booksandstationeries);
+   }
+   addtocart(product){
+    this.productsservice.addtocart(product);
+    this.productsservice.getcart();
+    this.total=this.productsservice.getcart().length;
+  }
+ 
+  navtocategory(){
+    this.router.navigate(['categories']);
   }
 
 }
