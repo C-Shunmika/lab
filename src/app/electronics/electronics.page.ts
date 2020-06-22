@@ -12,14 +12,16 @@ export class ElectronicsPage {
   private electronics;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) { 
-    this.electronics=productsservice.getelectronics();
-    console.log('products', this.electronics);
-  }
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getelectronics().subscribe((response)=>
+    {console.log('products',response);
+    this.electronics=response;
+  })}
+
   addtocart(product){
     this.productsservice.addtocart(product);
     this.productsservice.getcart();
-    this.total=this.productsservice.getcart().length;
+    
   }
  
   navtocategory(){

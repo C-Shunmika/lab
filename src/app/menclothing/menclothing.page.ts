@@ -7,18 +7,19 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./menclothing.page.scss'],
 })
 export class MenclothingPage{
-  private mencloths;
+  private menwear;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) { 
-    this.mencloths=productsservice.getmencloths();
-    console.log('products', this.mencloths);
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getmenwear().subscribe((response)=>
+    {console.log('products',response);
+    this.menwear=response;
+  })}
 
-  }
   addtocart(product){
+    console.log(product);
     this.productsservice.addtocart(product);
-    this.productsservice.getcart();
-    this.total=this.productsservice.getcart().length;
+    
   }
   
   navtocategory(){

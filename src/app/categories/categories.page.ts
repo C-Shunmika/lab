@@ -17,24 +17,31 @@ export class CategoriesPage implements OnInit {
   }
   navtowomenclothing(){
     this.router.navigate(['womenclothing']);
+    
   }
   navtomenclothing(){
     this.router.navigate(['menclothing']);
+    
   }
   navtoaccessories(){
     this.router.navigate(['accessories']);
+    
   }
   navtoelectronics(){
     this.router.navigate(['electronics']);
+    
   }
   navtocookware(){
     this.router.navigate(['cookware']);
+    
   }
   navtobooksandstationery(){
     this.router.navigate(['booksandstationery']);
+    
   }
   navtocart(){
     this.router.navigate(['mycart']);
+    
     
   }
 

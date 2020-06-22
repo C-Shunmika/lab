@@ -8,17 +8,19 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./womenclothing.page.scss'],
 })
 export class WomenclothingPage {
-  private womencloths;
+  private womenwear;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) {
-    this.womencloths=productsservice.getwomencloths();
-    console.log('products', this.womencloths);
-   }
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getwomenwear().subscribe((response)=>
+    {console.log('products',response);
+    this.womenwear=response;
+  })}
+
    addtocart(product){
     this.productsservice.addtocart(product);
     this.productsservice.getcart();
-    this.total=this.productsservice.getcart().length;
+    
   }
   
   navtocategory(){

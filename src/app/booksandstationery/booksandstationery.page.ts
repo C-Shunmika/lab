@@ -9,17 +9,19 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./booksandstationery.page.scss'],
 })
 export class BooksandstationeryPage {
-  private booksandstationeries;
+  private booksandstationery;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) {
-    this.booksandstationeries=productsservice.getbooksandstationeries();
-    console.log('products', this.booksandstationeries);
-   }
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getbooksandstationery().subscribe((response)=>
+    {console.log('products',response);
+    this.booksandstationery=response;
+  })}
+
    addtocart(product){
     this.productsservice.addtocart(product);
     this.productsservice.getcart();
-    this.total=this.productsservice.getcart().length;
+    
   }
  
   navtocategory(){

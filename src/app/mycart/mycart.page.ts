@@ -11,13 +11,14 @@ export class MycartPage  {
   private carts;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) { 
-    this.carts=productsservice.getcart();
-    console.log('products', this.carts);
-  }
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getcart().subscribe((response)=>
+    {console.log('cart information',response);
+    this.carts=response;
+  })}
+  
   removeProduct(product){
     this.productsservice.removeProduct(product);
-    this.total=this.productsservice.getcart().length;
   }
   navtocategory(){
     this.router.navigate(['categories']);

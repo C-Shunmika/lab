@@ -11,14 +11,15 @@ export class AccessoriesPage {
   private accessories;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) {
-    this.accessories=productsservice.getaccessories();
-    console.log('products', this.accessories);
-   }
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getaccessories().subscribe((response)=>
+    {console.log('products',response);
+    this.accessories=response;
+  })}
    addtocart(product){
     this.productsservice.addtocart(product);
     this.productsservice.getcart();
-    this.total=this.productsservice.getcart().length;
+    
   }
   
   navtocategory(){

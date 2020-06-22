@@ -1,99 +1,60 @@
 import { Injectable } from '@angular/core';
+import {HttpClientModule,HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  private mencloths = [
-    { id: 1, name: 'Shirts', price: '899.0'},
-    { id: 2, name: 'Jeans', price: '999.0'},
-    { id: 3, name: 'Trousers', price: '849.0'},
-    { id: 4, name: 'T-Shirts', price: '399.0'},
-    { id: 5, name: 'Dhotis', price: '499.0'},
-    { id: 6, name: 'Coats', price: '899.0'},
-  ];
-  private womencloths = [
-    { id: 1, name: 'Saree', price: '1200.0'},
-    { id: 2, name: 'Jeans', price: '999.0'},
-    { id: 3, name: 'Kurthis', price: '349.0'},
-    { id: 4, name: 'lehenga', price: '1400.0'},
-    { id: 5, name: 'Leggings', price: '200.0'},
-    { id: 6, name: 'Frocks', price: '289.0'},
-  ];
-  private accessories = [
-    { id: 1, name: 'Handbags', price: '700.0'},
-    { id: 2, name: 'Wallet', price: '350.0'},
-    { id: 3, name: 'jewellery', price: '599.0'},
-    { id: 4, name: 'Watch', price: '1000.0'},
-    { id: 5, name: 'Sneakers', price: '559.0'},
-    { id: 6, name: 'Flipflops', price: '250.0'},
-  ];
-  private electronics = [
-    { id: 1, name: 'Smart Phone', price: '12999.0'},
-    { id: 2, name: 'Pendrives', price: '450.0'},
-    { id: 3, name: 'Laptops', price: '42500.0'},
-    { id: 4, name: 'Headphones', price: '450.0'},
-    { id: 5, name: 'Power banks', price: '3500.0'},
-    { id: 6, name: 'Chargers', price: '500.0'},
-  ];
-  private cookwares = [
-    { id: 1, name: 'Cup and Saucer set', price: '5500.0'},
-    { id: 2, name: 'Non-Stick cookware set', price: '4599.0'},
-    { id: 3, name: 'Microwave Oven', price: '8999.0'},
-    { id: 4, name: 'Grill Pan', price: '500.0'},
-    { id: 5, name: 'Baking tray', price: '350.0'},
-    { id: 6, name: 'Dinner plates', price: '550.0'},
-  ];
-  private booksandstationeries = [
-    { id: 1, name: 'Unposted Letter', price: '289.0'},
-    { id: 2, name: 'Roller ball pen', price: '20.0'},
-    { id: 3, name: 'Quantitative aptitude', price: '789.0'},
-    { id: 4, name: 'Pencil', price: '5.0'},
-    { id: 5, name: 'Corrector Pens', price: '50.0'},
-    { id: 6, name: 'Sherlock Holmes', price: '250.0'},
-  ];
-
+  private menwear = [];
+  private womenwear = [];
+  private accessories = [];
+  private electronics = [];
+  private cookware = [];
+  private booksandstationery = [];
+  
+  
   private cart=[];
+  public producturl="http://localhost:8081";
+ constructor(public httpclient:HttpClient) { }
 
-  constructor() { }
-
-  getmencloths()
+ getmenwear()
   {
-    console.log('name',this.mencloths);
-    return this.mencloths;
+    console.log('name',this.menwear);
+    return this.httpclient.get(this.producturl+'/getmenwear');
   }
-  getwomencloths()
+
+  getwomenwear()
   {
-    console.log('name',this.womencloths);
-    return this.womencloths;
+    console.log('name',this.womenwear);
+    return this.httpclient.get(this.producturl+'/getwomenwear');
   }
   getaccessories()
   {
     console.log('name',this.accessories);
-    return this.accessories;
+    return this.httpclient.get(this.producturl+'/getaccessories');
   }
   getelectronics()
   {
     console.log('name',this.electronics);
-    return this.electronics;
+    return this.httpclient.get(this.producturl+'/getelectronics');
   }
-  getcookwares()
+  getcookware()
   {
-    console.log('name',this.cookwares);
-    return this.cookwares;
+    console.log('name',this.cookware);
+    return this.httpclient.get(this.producturl+'/getcookware');
   }
-  getbooksandstationeries()
+  getbooksandstationery()
   {
-    console.log('name',this.booksandstationeries);
-    return this.booksandstationeries;
+    console.log('name',this.booksandstationery);
+    return this.httpclient.get(this.producturl+'/getbooksandstationery');
   }
   
   addtocart(product){
-    this.cart.push(product);
+    return this.httpclient.post("this.producturl+'/addproduct'",product);
   }
   getcart(){
     console.log('cartinfo',this.cart);
-    return this.cart;
+    return this.httpclient.get(this.producturl+'/getcart');
   }
   removeProduct(product){
     for(let [index, p] of this.cart.entries()){

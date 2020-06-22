@@ -8,17 +8,18 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./cookware.page.scss'],
 })
 export class CookwarePage  {
-  private cookwares;
+  private cookware;
   private total;
 
-  constructor(public router : Router, public productsservice : ProductsService) { 
-    this.cookwares=productsservice.getwomencloths();
-    console.log('products', this.cookwares);
-  }
+  constructor(public router : Router , public productsservice : ProductsService) {
+    productsservice.getcookware().subscribe((response)=>
+    {console.log('products',response);
+    this.cookware=response;
+  })}
   addtocart(product){
     this.productsservice.addtocart(product);
     this.productsservice.getcart();
-    this.total=this.productsservice.getcart().length;
+    
   }
  
   navtocategory(){
