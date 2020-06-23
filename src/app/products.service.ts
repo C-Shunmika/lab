@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClientModule,HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +51,15 @@ export class ProductsService {
   }
   
   addtocart(product){
-    return this.httpclient.post("this.producturl+'/addproduct'",product);
+    console.log("add cart info",product);
+    this.sendPostRequest(product).subscribe((response)=>    {
+      console.log(response);
+    });
+    
+  }
+  sendPostRequest(product):Observable<any> {
+    console.log("Send post request");
+    return this.httpclient.post("http://127.0.0.1:8081/addproduct", product);
   }
   getcart(){
     console.log('cartinfo',this.cart);
