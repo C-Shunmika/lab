@@ -12,7 +12,7 @@ export class ProductsService {
   private electronics = [];
   private cookware = [];
   private booksandstationery = [];
-  
+ 
   
   private cart=[];
   public producturl="http://localhost:8081";
@@ -61,9 +61,11 @@ export class ProductsService {
     console.log("Send post request");
     return this.httpclient.post("http://127.0.0.1:8081/addproduct", product);
   }
-  getcart(){
-    console.log('cartinfo',this.cart);
-    return this.httpclient.get(this.producturl+'/getcart');
+
+  getcart(username){
+    
+    console.log("GET CART for "+username);
+    return this.httpclient.get(this.producturl+'/getcart/'+username);
   }
   removeProduct(product){
     console.log("removing from cart");

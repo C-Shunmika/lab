@@ -17,13 +17,14 @@ export class MycartPage  {
     this.actroute.queryParams.subscribe(params =>
       { 
         this.username = params['user'];
-       console.log(this.username);
-      })
-
-    productsservice.getcart().subscribe((response)=>
+        console.log("My cart page constructor "+this.username);
+        productsservice.getcart(this.username).subscribe((response)=>
     {console.log('cart information',response);
     this.carts=response;
+      })
+
   })}
+
   
   removeProduct(product){
     this.productsservice.removeProduct(product);

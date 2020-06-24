@@ -17,7 +17,7 @@ export class CategoriesPage implements OnInit {
     this.actroute.queryParams.subscribe(params =>
     { 
       this.username = params['user'];
-     console.log(this.username);
+      console.log("Categories page constructor "+this.username);
     })
   }
 
