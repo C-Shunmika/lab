@@ -17,8 +17,9 @@ export class MenclothingPage{
   })}
 
   addtocart(product){
-    console.log("men clothing", product);
-    this.productsservice.addtocart(product);
+    var postData ={"name":product.name,"price":product.price};
+    console.log("men clothing", postData);
+    this.productsservice.addtocart(postData);
     
   }
   

@@ -19,8 +19,9 @@ export class ElectronicsPage {
   })}
 
   addtocart(product){
-    this.productsservice.addtocart(product);
-    this.productsservice.getcart();
+    var postData ={"name":product.name,"price":product.price};
+    console.log("electronics", postData);
+    this.productsservice.addtocart(postData);
     
   }
  

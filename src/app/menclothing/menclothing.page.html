@@ -20,12 +20,13 @@
     </ion-fab-button>
   </ion-fab>
   <ion-fab-button (click)='navtocategory()' color="dark"><ion-icon name="arrow-undo-outline"></ion-icon></ion-fab-button>
+
+  
   
   <ion-list>
     <ion-card *ngFor="let product of menwear">
       <ion-card-header>
         <ion-card-title>{{ product.name }}</ion-card-title>
-        <ion-card-title>{{ product.id }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-row class="ion-align-items-center">

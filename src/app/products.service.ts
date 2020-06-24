@@ -66,10 +66,7 @@ export class ProductsService {
     return this.httpclient.get(this.producturl+'/getcart');
   }
   removeProduct(product){
-    for(let [index, p] of this.cart.entries()){
-      if(p.name === product.name){
-        this.cart.splice(index, 1);
-      }
-    }
+    console.log("removing from cart");
+    return this.httpclient.get(this.producturl+'/removecart');
   }
 }

@@ -16,9 +16,11 @@ export class CookwarePage  {
     {console.log('products',response);
     this.cookware=response;
   })}
+  
   addtocart(product){
-    this.productsservice.addtocart(product);
-    this.productsservice.getcart();
+    var postData ={"name":product.name,"price":product.price};
+    console.log("cookware", postData);
+    this.productsservice.addtocart(postData);
     
   }
  

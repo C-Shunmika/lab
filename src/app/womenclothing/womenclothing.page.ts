@@ -17,9 +17,10 @@ export class WomenclothingPage {
     this.womenwear=response;
   })}
 
-   addtocart(product){
-    this.productsservice.addtocart(product);
-    this.productsservice.getcart();
+  addtocart(product){
+    var postData ={"name":product.name,"price":product.price};
+    console.log("women clothing", postData);
+    this.productsservice.addtocart(postData);
     
   }
   
