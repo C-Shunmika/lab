@@ -11,8 +11,16 @@ import { ProductsService } from '../products.service';
 export class BooksandstationeryPage {
   private booksandstationery;
   private total;
+  private username;
 
-  constructor(public router : Router , public productsservice : ProductsService) {
+  constructor(public router : Router ,public actroute: ActivatedRoute, public productsservice : ProductsService) {
+
+    this.actroute.queryParams.subscribe(params =>
+      { 
+        this.username = params['user'];
+       console.log(this.username);
+      })
+
     productsservice.getbooksandstationery().subscribe((response)=>
     {console.log('products',response);
     this.booksandstationery=response;
@@ -26,7 +34,11 @@ export class BooksandstationeryPage {
   }
  
   navtocategory(){
-    this.router.navigate(['categories']);
+    this.router.navigate(['categories'],{queryParams:{user:this.username||'Default'}});
+  }
+  navtocart(){
+    this.router.navigate(['mycart'],{queryParams:{user:this.username||'Default'}});
+    
   }
 
 }

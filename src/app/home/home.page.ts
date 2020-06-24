@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ error: string;
         console.log('userid', this.password);
         this.error = 'invalid password';
       }else {
-      this.router.navigate(['categories']);
+      this.router.navigate(['categories'],{queryParams:{user:this.userid||'Default'}});
     }
   }
 
@@ -32,7 +32,7 @@ error: string;
         console.log('userid', this.password);
         this.error = 'invalid password';
       }else {
-      this.router.navigate(['categories']);
+      this.router.navigate(['categories'],{queryParams:{user:this.userid||'Default'}});
     }
   }
      else if( this.userid === 'gobika'){
@@ -40,7 +40,7 @@ error: string;
         console.log('userid', this.password);
         this.error = 'invalid password';
       }else {
-      this.router.navigate(['categories']);
+      this.router.navigate(['categories'],{queryParams:{user:this.userid||'Default'}});
     }
   }
     else if( this.userid === 'jenifer'){
@@ -48,7 +48,7 @@ error: string;
         console.log('userid', this.password);
         this.error = 'invalid password';
       }else {
-      this.router.navigate(['categories']);
+      this.router.navigate(['categories'],{queryParams:{user:this.userid||'Default'}});
     }
   }
   else{

@@ -10,8 +10,16 @@ import { ProductsService } from '../products.service';
 export class CookwarePage  {
   private cookware;
   private total;
+  private username;
+  
 
-  constructor(public router : Router , public productsservice : ProductsService) {
+  constructor(public router : Router ,public actroute: ActivatedRoute, public productsservice : ProductsService) {
+    this.actroute.queryParams.subscribe(params =>
+      { 
+        this.username = params['user'];
+       console.log(this.username);
+      })
+
     productsservice.getcookware().subscribe((response)=>
     {console.log('products',response);
     this.cookware=response;
@@ -25,7 +33,11 @@ export class CookwarePage  {
   }
  
   navtocategory(){
-    this.router.navigate(['categories']);
+    this.router.navigate(['categories'],{queryParams:{user:this.username||'Default'}});
+  }
+  navtocart(){
+    this.router.navigate(['mycart'],{queryParams:{user:this.username||'Default'}});
+    
   }
 
 }

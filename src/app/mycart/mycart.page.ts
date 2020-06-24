@@ -10,8 +10,16 @@ import { ProductsService } from '../products.service';
 export class MycartPage  {
   private carts;
   private total;
+  private username;
 
-  constructor(public router : Router , public productsservice : ProductsService) {
+  constructor(public router : Router ,public actroute: ActivatedRoute , public productsservice : ProductsService) {
+
+    this.actroute.queryParams.subscribe(params =>
+      { 
+        this.username = params['user'];
+       console.log(this.username);
+      })
+
     productsservice.getcart().subscribe((response)=>
     {console.log('cart information',response);
     this.carts=response;
@@ -21,7 +29,8 @@ export class MycartPage  {
     this.productsservice.removeProduct(product);
   }
   navtocategory(){
-    this.router.navigate(['categories']);
+    this.router.navigate(['categories'],{queryParams:{user:this.username||'Default'}});
   }
+  
   
 }

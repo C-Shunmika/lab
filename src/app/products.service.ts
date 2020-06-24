@@ -67,6 +67,6 @@ export class ProductsService {
   }
   removeProduct(product){
     console.log("removing from cart");
-    return this.httpclient.get(this.producturl+'/removecart');
+    return this.httpclient.get(this.producturl+'/removecart/product.name');
   }
 }

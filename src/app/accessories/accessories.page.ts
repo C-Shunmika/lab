@@ -10,8 +10,16 @@ import { ProductsService } from '../products.service';
 export class AccessoriesPage {
   private accessories;
   private total;
+  private username;
 
-  constructor(public router : Router , public productsservice : ProductsService) {
+  constructor(public router : Router ,public actroute: ActivatedRoute, public productsservice : ProductsService) {
+
+    this.actroute.queryParams.subscribe(params =>
+      { 
+        this.username = params['user'];
+       console.log(this.username);
+      })
+      
     productsservice.getaccessories().subscribe((response)=>
     {console.log('products',response);
     this.accessories=response;
@@ -24,7 +32,12 @@ export class AccessoriesPage {
   }
   
   navtocategory(){
-    this.router.navigate(['categories']);
+    this.router.navigate(['categories'],{queryParams:{user:this.username||'Default'}});
   }
+  navtocart(){
+    this.router.navigate(['mycart'],{queryParams:{user:this.username||'Default'}});
+    
+  }
+
 
 }
