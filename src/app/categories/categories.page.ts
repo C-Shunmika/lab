@@ -51,6 +51,15 @@ export class CategoriesPage implements OnInit {
     this.router.navigate(['mycart'],{queryParams:{user:this.username||'Default'}});
     
   }
+  removeProduct(product){
+    console.log("Remove product from my cart page "+product.name+ ", user -"+product.username)
+    this.productsservice.removeProduct(product).subscribe((response)=>
+    {
+      console.log('remove product respons-->'+JSON.stringify(response));
+
+    })
+    
+  }
 
 
 }

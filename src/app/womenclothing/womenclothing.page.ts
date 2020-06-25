@@ -24,9 +24,10 @@ export class WomenclothingPage {
     {console.log('products',response);
     this.womenwear=response;
   })}
-
+  
   addtocart(product){
-    var postData ={"name":product.name,"price":product.price};
+
+    var postData ={"name":product.name,"price":product.price,"username":this.username};
     console.log("women clothing", postData);
     this.productsservice.addtocart(postData);
     

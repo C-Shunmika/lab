@@ -24,10 +24,15 @@ export class MycartPage  {
       })
 
   })}
-
   
   removeProduct(product){
-    this.productsservice.removeProduct(product);
+    console.log("Remove product from my cart page "+product.name+ ", user -"+product.username)
+    this.productsservice.removeProduct(product).subscribe((response)=>
+    {
+      console.log('remove product respons-->'+JSON.stringify(response));
+
+    })
+    
   }
   navtocategory(){
     this.router.navigate(['categories'],{queryParams:{user:this.username||'Default'}});

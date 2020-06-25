@@ -27,7 +27,8 @@ export class BooksandstationeryPage {
   })}
 
   addtocart(product){
-    var postData ={"name":product.name,"price":product.price};
+
+    var postData ={"name":product.name,"price":product.price,"username":this.username};
     console.log("books", postData);
     this.productsservice.addtocart(postData);
     
