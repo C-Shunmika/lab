@@ -1,4 +1,18 @@
+ion-content{
+  --background:none;
+  background-image:url('/assets/images/bg7.jpg');
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-size:cover ;
+}
+ion-list{
+  opacity: 0.7;
+  ion-card{
+    opacity: 0.9;
+  }
+
+}
 ion-fab-button {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
   }

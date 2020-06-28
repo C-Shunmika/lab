@@ -11,10 +11,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'department',
-    loadChildren: () => import('./department/department.module').then( m => m.DepartmentPageModule)
-  },
+
   {
     path: 'categories',
     loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesPageModule)

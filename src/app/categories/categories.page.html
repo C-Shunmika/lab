@@ -14,41 +14,64 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="end">
+  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
     <ion-fab-button color = "dark" (click) ='navtocart()'>
       <ion-icon name="cart-sharp"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-    
-  <ion-col size=1>
-    <ion-row>
-     <ion-button color="dark" (click) = 'navtomenclothing()' ><ion-icon name="shirt-outline"></ion-icon>MEN WEAR</ion-button>
-    </ion-row>
-  </ion-col>
-  <ion-col size=1>
-    <ion-row>
-      <ion-button color="dark" (click) = 'navtowomenclothing()' ><ion-icon name="woman-sharp"></ion-icon>WOMEN WEAR</ion-button>
-    </ion-row>
-  </ion-col>
-  <ion-col size=1>
-    <ion-row>
-     <ion-button color="dark" (click) = 'navtoaccessories()' ><ion-icon name="watch-outline"></ion-icon>ACCESSORIES</ion-button>
-    </ion-row>
-  </ion-col>
-  <ion-col size=1>
-    <ion-row>
-     <ion-button color="dark" (click) = 'navtoelectronics()' ><ion-icon name="phone-portrait-sharp"></ion-icon>ELECTRONICS</ion-button>
-    </ion-row>
-  </ion-col>
-  <ion-col size=1>
-    <ion-row>
-     <ion-button color="dark" (click) = 'navtocookware()' ><ion-icon name="restaurant-sharp"></ion-icon>COOKWARE</ion-button>
-    </ion-row>
-  </ion-col>
-  <ion-col size=1>
-    <ion-row>
-     <ion-button color="dark" (click) = 'navtobooksandstationery()' ><ion-icon name="library-sharp"></ion-icon>BOOKS AND STATIONERY</ion-button>
-    </ion-row>
-  </ion-col>
-
+  
+  <ion-list>
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="shirt-outline"></ion-icon>
+        </ion-card-title>
+        <ion-button color="dark" (click) = 'navtomenclothing()' >MEN WEAR</ion-button>
+      </ion-card-header>
+    </ion-card>
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="woman-sharp"></ion-icon>
+        </ion-card-title>
+        <ion-button color="dark" (click) = 'navtowomenclothing()' >WOMEN WEAR</ion-button>
+      </ion-card-header>
+    </ion-card>
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="watch-outline"></ion-icon>
+        </ion-card-title>
+        <ion-button color="dark" (click) = 'navtoaccessories()' >ACCESSORIES</ion-button>
+      </ion-card-header>
+    </ion-card>
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="phone-portrait-sharp"></ion-icon>
+        </ion-card-title>
+        <ion-button color="dark" (click) = 'navtoelectronics()' >ELECTRONICS</ion-button>
+      </ion-card-header>
+    </ion-card>
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="restaurant-sharp"></ion-icon>
+        </ion-card-title>
+        <ion-button color="dark" (click) = 'navtocookware()' >COOKWARE</ion-button>
+      </ion-card-header>
+    </ion-card>
+    <ion-card color="dark">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="library-sharp"></ion-icon>
+        </ion-card-title>
+        <ion-button color="dark" (click) = 'navtobooksandstationery()' >BOOKS AND STATIONERY</ion-button>
+      </ion-card-header>
+    </ion-card>
+  
+  </ion-list>
 </ion-content>
+
+
+  

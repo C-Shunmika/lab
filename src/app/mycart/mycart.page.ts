@@ -18,12 +18,17 @@ export class MycartPage  {
       { 
         this.username = params['user'];
         console.log("My cart page constructor "+this.username);
-        productsservice.getcart(this.username).subscribe((response)=>
-    {console.log('cart information',response);
-    this.carts=response;
-      })
-
+       // productsservice.getcart(this.username).subscribe((response)=>
+    //{console.log('cart information',response);
+    //this.carts=response;
+     // })
+     this.getcartinfo();
   })}
+  getcartinfo(){
+    this.productsservice.getcart(this.username).subscribe((response)=>{
+      this.carts=response;
+    });
+  }
   
   removeProduct(product){
     console.log("Remove product from my cart page "+product.name+ ", user -"+product.username)
@@ -32,7 +37,7 @@ export class MycartPage  {
       console.log('remove product respons-->'+JSON.stringify(response));
 
     })
-    
+    this.getcartinfo();
   }
   navtocategory(){
     this.router.navigate(['categories'],{queryParams:{user:this.username||'Default'}});

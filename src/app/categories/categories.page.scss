@@ -1,10 +1,21 @@
 ion-content{
-    --background:url('/assets/images/sv-home.png')no-repeat ;
+  --background:none;
+  background-image:url('/assets/images/bg7.jpg');
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-size:cover ;
+}
+ion-list{
+  opacity: 0.8;
+  ion-card{
+    opacity: 1;
   }
-  div{
-    opacity : 0.6;
-  }
+
+}
+  ion-card{
+    text-align : center;
+    }
   ion-fab-button {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
   }
